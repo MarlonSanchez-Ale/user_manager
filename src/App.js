@@ -3,17 +3,14 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import React from "react";
-import { Link } from 'react-router-dom';
 import BookList from './components/BookList';
-import BookForm from './components/BookForm';
+import BookCollection from './components/BookCollection';
+import BookDetails from './components/BookDetails';
 
 function App() {
 
-  const { logout } = useAuth0()
 
-
-
-  const { isAuthenticated, isLoading } = useAuth0();
+  const { isLoading } = useAuth0();
 
   if (isLoading) {
     return (
@@ -35,8 +32,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<BookList />} />
-          <Route path='/register-book' element={<BookForm />} />
-          <Route path='/edit-book/:id' element={<BookForm />} />
+          <Route path='/collection' element={<BookCollection />} />
+          <Route path='/details/:id' element={<BookDetails />} />
         </Routes>
       </BrowserRouter>
     </div>

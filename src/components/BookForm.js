@@ -1,7 +1,10 @@
-
+import Format from "./layout/format";
+import Form from "./elements/Form";
 
 export default function BookForm() {
     return (
-        <div>FORMULARIO PARA LIBROS</div>
+        <Format>
+            <Form></Form>
+        </Format>
     )
 }
