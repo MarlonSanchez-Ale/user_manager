@@ -33,18 +33,28 @@ export default function Header() {
                     Home
                 </Link>
             </Typography>
-            <Typography
-                as="li"
-                color="white"
-                className="p-1 font-normal"
-            >
-                <Link to="/collection" className="flex items-center">
-                    My Collection
-                </Link>
-            </Typography>
-            <Button size="sm" className="bg-blue-gray-800 group-hover:bg-blue-gray-700" onClick={() => logout()}>
-                <span>Logout</span>
-            </Button>
+            {isAuthenticated && (
+                <>
+                    <Typography
+                        as="li"
+                        color="white"
+                        className="p-1 font-normal"
+                    >
+                        <Link to="/collection" className="flex items-center">
+                            My Collection
+                        </Link>
+                    </Typography>
+                    <Button size="sm" className="bg-blue-gray-800 group-hover:bg-blue-gray-700" onClick={() => logout()}>
+                        <span>Logout</span>
+                    </Button>
+                </>
+            )}
+
+            {!isAuthenticated && (
+                <Button variant="gradient" size="md" className="my-2 hidden lg:block" onClick={() => loginWithRedirect()}>
+                    <span>Login</span>
+                </Button>
+            )}
         </ul>
     );
 
@@ -60,14 +70,7 @@ export default function Header() {
                     >
                         Free Books
                     </Typography>
-                    {isAuthenticated && (
-                        <div className="hidden lg:block">{navList}</div>
-                    )}
-                    {!isAuthenticated && (
-                        <Button variant="gradient" size="md" className="my-2 hidden lg:block" onClick={() => loginWithRedirect()}>
-                            <span>Login</span>
-                        </Button>
-                    )}
+                    <div className="hidden lg:block">{navList}</div>
                     <IconButton
                         variant="text"
                         className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
