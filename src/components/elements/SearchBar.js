@@ -42,37 +42,3 @@ export const SearchBar = ({ filter }) => {
 }
 
 
-/*
-
- <Input
-                    type="text"
-                    label="Book finder"
-                    onChange={(e) => {
-                        setBookFind(e.target.value)
-                    }}
-                    containerProps={{
-                        className: "min-w-0",
-                    }}
-                />
-                <Button
-                    size="sm"
-                    color={bookFind ? "gray" : "blue-gray"}
-                    disabled={!bookFind}
-                    className="!absolute right-1 top-1 rounded"
-                    type="submit"
-                >
-                    Search
-                </Button>
-
-
-                 <Input
-                name="searchQuery"
-                component="input"
-                type="text"
-                placeholder="Search by title..."
-                value={filter}
-                onChange={(e) => dispatch(setFilter(e.target.value))}
-            />
-
-*/
-

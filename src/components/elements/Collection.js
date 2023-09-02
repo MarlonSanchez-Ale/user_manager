@@ -28,22 +28,25 @@ export default function Collection() {
             <SearchBar filter={filter} />
 
             {/* Grid columns */}
+
             <div className="flex flex-col justify-center gap-5">
                 <div className="grid place-content-end">
-                    <Button
-                        size="lg"
-                        variant="gradient"
-                        color="blue-gray"
-                        className="group relative flex items-center gap-3 overflow-hidden pr-[72px] sm:text-sm md:text-sm"
-                        onClick={() => handleRemoveAllCollection()}
-                    >
-                        Remove Collections
-                        <span className="absolute right-0 grid h-full w-12 place-items-center bg-blue-gray-600 transition-colors group-hover:bg-blue-gray-700">
-                            <BsFillCheckCircleFill size={20} />
-                        </span>
-                    </Button>
+                <Button
+                            size="lg"
+                            variant="gradient"
+                            color="blue-gray"
+                            className="group relative flex items-center gap-3 overflow-hidden pr-[72px] sm:text-sm md:text-sm"
+                            disabled={!books.length  ? true : false}
+                            onClick={() => handleRemoveAllCollection()}
+                        >
+                            Remove Collections
+                            <span className="absolute right-0 grid h-full w-12 place-items-center bg-blue-gray-600 transition-colors group-hover:bg-blue-gray-700">
+                                <BsFillCheckCircleFill size={20} />
+                            </span>
+                        </Button>                   
                 </div>
-                <Books books={books} remove={true}/>
+
+                <Books books={books} remove={true} />
             </div>
         </section>
     )
